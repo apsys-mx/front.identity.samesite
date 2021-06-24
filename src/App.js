@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import AnonymousView from './views/home/Anonymous'
+import AuthenticatedView from './views/home/Authorized'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const dispatch = useDispatch();
+  const loggedUser = useSelector((state) => state.oidc.user);
+  const isLoadingUser = useSelector((state) => state.oidc.isLoadingUser);
+  //const isExecutingLogout = useSelector((state) => state.session.get('executingLogout'));
+
+  const isAuthenticated = () => {
+		if (!(isLoadingUser === false && loggedUser)) {
+			return false;
+		}
+		return true;
+	};
+
+  useEffect(() => {
+		if (loggedUser) {
+
+		}
+	}, [loggedUser, dispatch]);
+
+  if (isAuthenticated() === false) {
+		return <AnonymousView />;
+	} else { 
+	  return <AuthenticatedView />;
+  }
+  
 }
 
 export default App;
