@@ -5,7 +5,6 @@ import userManager from '../../store/helpers/UserManager'
 function App() {
 
   const onLogin = () => {
-    console.log(`${process.env.REACT_APP_IDENTITY_SERVER}/identity`)
     userManager.signinRedirect()
   }
 
@@ -18,7 +17,7 @@ function App() {
         </p>
         <h1>Anonymous view</h1>
         <br />
-        <button type="button" class="btn btn-primary" onClick={onLogin}>Login</button>
+        <button type="button" className="btn btn-primary" onClick={onLogin}>Login</button>
       </header>
     </div>
   );

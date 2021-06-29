@@ -17,7 +17,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <h1>Authorized view</h1>
-        <button type="button" class="btn btn-danger" onClick={onLogout}>Logout</button>
+        <button type="button" className="btn btn-danger" onClick={onLogout}>Logout</button>
       </header>
     </div>
   );

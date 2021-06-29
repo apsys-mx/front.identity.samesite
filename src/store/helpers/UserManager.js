@@ -8,8 +8,8 @@ const userManagerConfig = {
     redirect_uri: getAbsoluteUrlAddress('callback'),
     post_logout_redirect_uri: getAbsoluteUrlAddress(''),
     response_type: 'id_token token',
-    scope: 'openid profile email userprofile',
-    authority: `${process.env.REACT_APP_IDENTITY_SERVER}/identity`,
+    scope: 'openid profile',
+    authority: `${process.env.REACT_APP_IDENTITY_SERVER}`,
     filterProtocolClaims: true,
     loadUserInfo: true,
     clockSkew: 900
